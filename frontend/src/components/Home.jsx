@@ -1,20 +1,39 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Zap, Compass, Target, Sparkles, MoveRight,
   ChevronRight, PieChart, ShieldCheck,
-  Globe, Brain, Cpu, Layers
+  Globe, Brain, Cpu, Layers, Activity,
+  Terminal, BarChart3
 } from 'lucide-react';
 
 const Home = ({ onStart }) => {
+  const [feedItems, setFeedItems] = useState([
+    "Neural Engine Initialized...",
+    "Market Data Synced: 12.4k Job Patterns",
+    "Personality Model Calibrated",
+    "V3.4 Nexus Core Online"
+  ]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const logs = [
+        "Analyzing Skill Trends in Cloud Engineering...",
+        "Updating Salary Indices: +2.4% for AI Engineers",
+        "New Roadmap Generated for Fullstack Devs",
+        "Global Career Trajectories Updated",
+        "Predicting Market Shift: DevOps 2026",
+        "Cross-Referencing Tech Stack Requirements..."
+      ];
+      const randomLog = logs[Math.floor(Math.random() * logs.length)];
+      setFeedItems(prev => [randomLog, ...prev.slice(0, 3)]);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
   };
 
   const itemVariants = {
@@ -24,96 +43,143 @@ const Home = ({ onStart }) => {
 
   return (
     <motion.div
-      className="home-page-v3"
+      className="nexus-home"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      {/* 1. HERO SECTION */}
-      {/* hero decorative glow removed for consistency */}
-      <section className="landing-section hero-v3">
+      {/* --- HERO SECTION --- */}
+      <section className="hero-nexus">
+        <div className="hero-grid">
+          <motion.div className="hero-left" variants={itemVariants}>
+            <div className="badge-glow">
+              <Activity size={14} className="pulse-slow" />
+              <span>System Status: Optimal</span>
+            </div>
+            <h1 className="hero-title-mega">
+              Pilot Your <br />
+              <span className="text-gradient-nexus">Trajectory</span>
+            </h1>
+            <p className="hero-desc-nexus">
+              The world's first autonomous career architect. We don't just predict jobs; we engineer your professional future using high-fidelity neural mapping.
+            </p>
+            <div className="hero-actions-nexus">
+              <button onClick={onStart} className="btn-nexus-main">
+                <span>Start Neural Scan</span>
+                <MoveRight size={20} />
+              </button>
+              <div className="user-proof">
+                <div className="avatars-group">
+                  <div className="avatar">YM</div>
+                  <div className="avatar">JD</div>
+                  <div className="avatar">AS</div>
+                </div>
+                <span>12k+ Analyzed</span>
+              </div>
+            </div>
+          </motion.div>
 
-        <motion.div variants={itemVariants} className="badge-neural">
-          <Sparkles size={14} className="text-secondary" />
-          <span>Universe 3.0 • Neural Core v3.4</span>
-        </motion.div>
+          {/* --- NEURAL FEED (RIGHT SIDE) --- */}
+          <motion.div className="hero-right" variants={itemVariants}>
+            <div className="intelligence-terminal glass-dark">
+              <div className="terminal-header">
+                <div className="terminal-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <span className="terminal-title">LIVE_INTELLIGENCE_FEED</span>
+              </div>
+              <div className="terminal-body">
+                <AnimatePresence mode="popLayout">
+                  {feedItems.map((item, i) => (
+                    <motion.div
+                      key={item}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      className="feed-line"
+                    >
+                      <span className="line-prefix">>></span>
+                      <span className="line-text">{item}</span>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
+              <div className="terminal-footer">
+                <Terminal size={14} />
+                <span>ACTIVE_NEXUS_CORE_V3.4</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
 
-        <motion.h1
-          variants={itemVariants}
-          className="gradient-text hero-title"
-          style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', textAlign: 'center', lineHeight: 0.95 }}
-        >
-          Pilot Your<br />Infinite Potential
-        </motion.h1>
-
-        <motion.p variants={itemVariants} className="hero-subtitle">
-          Experience the world's most advanced autonomous career coach.
-          Powered by 528k neural data points and real-time market IQ.
-        </motion.p>
-
-        <motion.div variants={itemVariants} className="hero-actions">
-          <button onClick={onStart} className="btn-vibrance lg">
-            <span>Launch Analysis</span>
-            <MoveRight size={22} />
-          </button>
-        </motion.div>
-
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 3, repeat: Infinity }}
-          className="scroll-indicator"
-        >
-          <ChevronRight size={32} style={{ transform: 'rotate(90deg)' }} />
-        </motion.div>
+        {/* --- FLOATING COSMIC BACKGROUND --- */}
+        <div className="cosmic-bg">
+          <div className="orb orb-1"></div>
+          <div className="orb orb-2"></div>
+        </div>
       </section>
 
-      {/* 2. THE NEURAL ENGINE GRID */}
-      <section className="compact-section features-v3">
-        <div className="section-header">
-          <h2 className="gradient-text">The Neural Backbone</h2>
-          <p>Cutting-edge technologies working in perfect harmony.</p>
-        </div>
-
-        <div className="features-grid-v3">
-          <motion.div variants={itemVariants} className="feature-card-v3">
-            <div className="icon-box"><Brain className="text-primary" /></div>
-            <h3>Cognitive Matching</h3>
-            <p>Our ML engine maps your unique psychological markers to 48+ elite career domains.</p>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="feature-card-v3">
-            <div className="icon-box"><Cpu className="text-secondary" /></div>
-            <h3>SHAP Reasoning</h3>
-            <p>Transparency is core. See exactly why the AI made every single recommendation.</p>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="feature-card-v3">
-            <div className="icon-box"><Globe className="text-accent" /></div>
-            <h3>Global Market IQ</h3>
-            <p>Real-time salary and outlook data fetched from the world's leading job indices.</p>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="feature-card-v3">
-            <div className="icon-box"><Layers className="text-primary" /></div>
-            <h3>Skill Gap Atlas</h3>
-            <p>Automated roadmap generation to bridge the distance between you and your dream role.</p>
-          </motion.div>
+      {/* --- FEATURE GRID --- */}
+      <section className="nexus-features">
+        <div className="features-container">
+          <div className="features-intro">
+            <h2 className="section-title-nexus">The Architecture</h2>
+            <p>Our multi-layer neural network analyzes thousands of data points to ensure your career success.</p>
+          </div>
+          <div className="nexus-grid">
+            <FeatureCard 
+              icon={<Brain />} 
+              title="Cognitive Engine" 
+              desc="Maps your unique psychology to elite career domains." 
+              color="indigo"
+            />
+            <FeatureCard 
+              icon={<Cpu />} 
+              title="Explainable AI" 
+              desc="Transparency at every step. Understand every 'Why'." 
+              color="cyan"
+            />
+            <FeatureCard 
+              icon={<Globe />} 
+              title="Market IQ" 
+              desc="Real-time global salary and growth telemetry." 
+              color="purple"
+            />
+            <FeatureCard 
+              icon={<BarChart3 />} 
+              title="Skill Atlas" 
+              desc="Automated roadmap generation to bridge gaps." 
+              color="blue"
+            />
+          </div>
         </div>
       </section>
 
-      {/* 3. CTA FOOTER */}
-      <section className="compact-section cta-v3">
-        <div className="vibrance-card cta-card-v3">
-          <h2 className="gradient-text">Ready to launch?</h2>
-          <p>Join 12,000+ professionals navigating their future with CareerPilot.</p>
-          <button onClick={onStart} className="btn-vibrance">
-            <span>Begin Neural Mapping</span>
-            <Sparkles size={18} />
+      {/* --- FOOTER CTA --- */}
+      <section className="nexus-footer-cta">
+        <motion.div whileHover={{ scale: 1.01 }} className="cta-glass-card">
+          <h2>Ready to Evolve?</h2>
+          <p>Join the next generation of professionals guided by neural intelligence.</p>
+          <button onClick={onStart} className="btn-nexus-main lg">
+            <span>Initialize Mapping</span>
+            <Sparkles size={20} />
           </button>
-        </div>
+        </motion.div>
       </section>
     </motion.div>
   );
 };
 
+const FeatureCard = ({ icon, title, desc, color }) => (
+  <motion.div 
+    whileHover={{ y: -10 }}
+    className={`nexus-feature-card ${color}`}
+  >
+    <div className="feature-icon-wrapper">{icon}</div>
+    <h3>{title}</h3>
+    <p>{desc}</p>
+  </motion.div>
+);
+
 export default Home;
+
