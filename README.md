@@ -1,125 +1,105 @@
-# 🚀 AI CareerPilot: Neural Career Guidance System
+# 🚀 AI CareerPilot: Your Intelligent Career Counselor
 
-[![React](https://img.shields.io/badge/Frontend-React.js-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
-[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-green?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
-[![Scikit-Learn](https://img.shields.io/badge/ML-Scikit--Learn-orange?style=for-the-badge&logo=scikitlearn)](https://scikit-learn.org/)
-[![MySQL](https://img.shields.io/badge/Database-MySQL-blue?style=for-the-badge&logo=mysql)](https://www.mysql.com/)
-
-An advanced, end-to-end career guidance platform powered by **Explainable AI (XAI)**. This system predicts career trajectories by analyzing technical competencies, soft skills, and academic metrics, providing users with a "Neural Reasoning" thought stream and interactive coaching.
+Welcome to **AI CareerPilot**! This is a smart web application designed to help students find their perfect career path. Instead of guessing what you should do next, our AI analyzes your skills and tells you exactly which job fits you best.
 
 ---
 
-## 📸 Preview
-> *Tip: Upload your project screenshots to the `assets/` folder and link them here!*
-![Dashboard Preview](https://via.placeholder.com/800x450?text=AI+CareerPilot+Premium+Dashboard)
+## 🌟 What does this project do? (In Simple Terms)
+
+Imagine you have a personal mentor who knows every job in the IT industry. You tell this mentor your grades, what programming languages you know, and what you are interested in. The mentor then says: *"Based on your skills, you would be an amazing Data Scientist! Here is your roadmap to get there."*
+
+**That is exactly what this app does!**
+
+### Main Features:
+1.  **Smart Career Prediction**: Take a simple test, and our AI (trained on thousands of records) predicts your top 3 career matches.
+2.  **AI Coach (The "Brain")**: A chat system that doesn't just give answers, but "thinks" out loud to help you understand your options.
+3.  **Beautiful Dashboard**: A clean, modern place to see your results, salary trends, and roadmaps.
+4.  **Step-by-Step Roadmaps**: Not just a job title, but a full plan on what to learn next.
 
 ---
 
-## ✨ Key Modules
+## 🛠️ The "Engine" (How it's built)
 
-### 1. 🧠 Neural Prediction Engine
-Utilizes a **Naive Bayes & Random Forest Ensemble** to predict the top 3 career matches with probability scores.
-- **Explainable AI**: Visualizes SHAP values to show *why* a specific career was recommended.
-- **Skill Gap Analysis**: Compares user skills against industry standards.
-
-### 2. 🤖 Neural Reasoning Agent
-A proactive AI coach that simulates human reasoning to guide users through their career path.
-- **Interactive Chat**: Natural language processing for career-related queries.
-- **Step-by-Step Roadmaps**: Dynamically generated learning paths.
-
-### 3. 💎 Premium UI/UX
-- **Glassmorphism Design**: High-end visual aesthetic with blurred backgrounds and neon accents.
-- **Real-time Data Visualization**: Interactive charts for salary growth and market trends.
-- **Responsive Layout**: Seamless experience across Desktop and Mobile.
+We used the best modern tools to build this:
+*   **The Face (Frontend)**: **React.js** – This makes the website fast, smooth, and beautiful.
+*   **The Brain (Backend)**: **FastAPI (Python)** – This is the high-speed engine that handles all the logic.
+*   **The Memory (Database)**: **MySQL** – This is where we safely store your profile and scores.
+*   **The Intelligence (AI)**: **Scikit-Learn** – This is the math part that "learns" from data to make predictions.
 
 ---
 
-## 📂 Repository Hygiene: Excluded Files
-To maintain a clean and secure repository, the following are **not** committed. Follow these steps to regenerate them:
+## 📂 Missing Something? (The "Invisible" Files)
 
-| Excluded Item | Description | Restoration Command / Action |
+When you download this from GitHub, some files might be "missing." Don't worry! We do this to keep the project light and secure.
+
+1.  **The "Libraries" (`node_modules`)**: These are like the tools in a toolbox. We don't carry the toolbox, we just give you the list. You get them back by running one simple command: `npm install`.
+2.  **The "Secrets" (`.env`)**: This is where you put your database password. We don't share ours for security, so you just create your own!
+3.  **The "Heavy Models" (`.pkl`)**: These are the actual AI brains. They are very large, so we use a special system called **Git LFS** to store them.
+
+---
+
+## 🚀 How to Set It Up on Your Computer
+
+Think of this as a two-step process: setting up the **Backend (Brain)** and the **Frontend (Face)**.
+
+### Step 1: The Backend (The Brain)
+1.  Go into the `backend` folder.
+2.  Create a file named `.env` and put your database details inside (Host, User, Password).
+3.  Install the Python tools:
+    ```bash
+    pip install -r requirements.txt
+    ```
+4.  Start the server:
+    ```bash
+    python main.py
+    ```
+
+### Step 2: The Frontend (The Face)
+1.  Go into the `frontend` folder.
+2.  Install the tools:
+    ```bash
+    npm install
+    ```
+3.  Start the website:
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## 🕹️ How to Use the App
+
+1.  **Login**: Use `Yash` (Password: `123456`) or create a new account.
+2.  **Take the Assessment**: Answer questions about your skills (Python, SQL, Communication, etc.).
+3.  **Get Results**: See your top career matches immediately.
+4.  **Chat with AI**: Ask the AI coach, *"How can I improve my SQL skills?"* or *"What is the salary of a Web Developer?"*
+
+---
+
+## 📊 How the AI "Thinks"
+
+Our AI looks at over 25 different things about you, including:
+*   How good you are at coding.
+*   If you like talking to people or working alone.
+*   Your college grades.
+*   Your interests (like Web Design or Hacking).
+
+It then compares you to thousands of other successful professionals to find your best match.
+
+---
+
+## 🔑 Login Details (For Testing)
+
+| Role | Username | Password |
 | :--- | :--- | :--- |
-| `node_modules/` | Frontend dependencies | `cd frontend && npm install` |
-| `.env` | Secret API/DB keys | Create `backend/.env` (see template below) |
-| `__pycache__/` | Python byte code | Automatically created on run |
-| `*.log` | Server error logs | Automatically created on run |
+| **Admin** | `Admin` | `123456` |
+| **Student** | `Yash` | `123456` |
 
 ---
 
-## 🛠️ Detailed Setup Guide
-
-### 1. Database Initialization
-1. Open your MySQL client (Workbench or CMD).
-2. Create a database: `CREATE DATABASE career_guidance;`
-3. Import the schema from `backend/view_data.sql`.
-
-### 2. Environment Variables
-Create a file named `.env` in the `backend/` folder:
-```env
-# Database Config
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_mysql_password
-DB_NAME=career_guidance
-
-# AI Config (Optional)
-AI_MODEL_PATH=weights/career_model_nb.pkl
-```
-
-### 3. Backend Installation
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-### 4. Frontend Installation
-```bash
-cd frontend
-npm install
-```
+## 👨‍💻 Author
+**Yash Modi**
+*Final Year Project - Dedicated to helping students navigate their future.*
 
 ---
-
-## 🔌 API Documentation (Endpoints)
-
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `POST` | `/api/login` | User/Admin Authentication |
-| `POST` | `/api/predict` | ML Career Prediction Engine |
-| `GET` | `/api/dashboard/{user_id}` | Fetch personalized career data |
-| `POST` | `/api/chat` | Interact with the Neural Reasoning Agent |
-
----
-
-## 📉 Machine Learning Architecture
-The system processes **25+ input features** including:
-- **Technical**: Programming, Database, Cloud, UI/UX skills.
-- **Soft Skills**: Communication, Leadership, Problem Solving.
-- **Academic**: CGPA, Internships, Projects.
-
-**Model Pipeline:**
-1. **Preprocessing**: Label Encoding + Scaling.
-2. **Feature Extraction**: TF-IDF for text-based interests.
-3. **Classification**: Naive Bayes (Fast) + Random Forest (High Accuracy).
-
----
-
-## 🔑 Access Credentials
-
-*   **Admin Dashboard**: `Admin` / `123456`
-*   **Student Dashboard**: `Yash` / `123456`
-
----
-
-## 🚀 Future Roadmap
-- [ ] Integration with LinkedIn API for real-time job listings.
-- [ ] PDF Certificate generation for assessment completion.
-- [ ] Dark/Light mode toggle for the UI.
-- [ ] Mobile App version using React Native.
-
----
-
-## 🛡️ License & Copyright
-Developed by **Yash Modi** for the Final Year Capstone Project. All rights reserved. 
+*If you like this project, feel free to ⭐ it on GitHub!*
