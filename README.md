@@ -1,64 +1,80 @@
-# 🚀 AI CareerPilot: Personalized Career Guidance System
+# 🚀 AI CareerPilot: Neural Career Guidance System
 
-A premium, full-stack career trajectory prediction and guidance system. This platform uses machine learning to analyze technical skills, soft skills, and academic performance to recommend optimal career paths with high-accuracy roadmaps and AI coaching.
+[![React](https://img.shields.io/badge/Frontend-React.js-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-green?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Scikit-Learn](https://img.shields.io/badge/ML-Scikit--Learn-orange?style=for-the-badge&logo=scikitlearn)](https://scikit-learn.org/)
+[![MySQL](https://img.shields.io/badge/Database-MySQL-blue?style=for-the-badge&logo=mysql)](https://www.mysql.com/)
 
----
-
-## ✨ Key Features
-- **AI-Driven Recommendations**: Predicts top career matches using Scikit-Learn models.
-- **Dynamic Roadmaps**: Generates step-by-step career progression plans.
-- **Neural Reasoning Agent**: Real-time AI coach that "thinks" through your career options.
-- **Premium UI**: Modern glassmorphism interface with fluid animations.
-- **Growth Analysis**: Visualization of salary expectations and market demand.
+An advanced, end-to-end career guidance platform powered by **Explainable AI (XAI)**. This system predicts career trajectories by analyzing technical competencies, soft skills, and academic metrics, providing users with a "Neural Reasoning" thought stream and interactive coaching.
 
 ---
 
-## 🛠️ Tech Stack
-- **Frontend**: React.js, Lucide Icons, Vanilla CSS (Custom Design System).
-- **Backend**: FastAPI (Python), MySQL.
-- **Machine Learning**: Scikit-Learn, Pandas, SHAP (Explainable AI).
-- **Large File Support**: Git LFS for ML Model weights.
+## 📸 Preview
+> *Tip: Upload your project screenshots to the `assets/` folder and link them here!*
+![Dashboard Preview](https://via.placeholder.com/800x450?text=AI+CareerPilot+Premium+Dashboard)
 
 ---
 
-## 📂 Repository Note: Excluded Files
-For security and efficiency, some files are **not** included in this repository. Here is how to restore them:
+## ✨ Key Modules
 
-1.  **`node_modules/`**:
-    *   **Why excluded**: Thousands of library files that are bulky.
-    *   **How to restore**: Run `npm install` inside the `frontend` folder.
-2.  **`.env` File**:
-    *   **Why excluded**: Contains sensitive database passwords.
-    *   **How to restore**: Create a `.env` file in the `backend/` folder (see [Environment Variables](#-environment-variables) below).
-3.  **Local Database (`.db`)**:
-    *   **Why excluded**: Local test data is specific to the development machine.
-    *   **How to restore**: Run the SQL scripts in `backend/view_data.sql` to initialize your MySQL database.
+### 1. 🧠 Neural Prediction Engine
+Utilizes a **Naive Bayes & Random Forest Ensemble** to predict the top 3 career matches with probability scores.
+- **Explainable AI**: Visualizes SHAP values to show *why* a specific career was recommended.
+- **Skill Gap Analysis**: Compares user skills against industry standards.
+
+### 2. 🤖 Neural Reasoning Agent
+A proactive AI coach that simulates human reasoning to guide users through their career path.
+- **Interactive Chat**: Natural language processing for career-related queries.
+- **Step-by-Step Roadmaps**: Dynamically generated learning paths.
+
+### 3. 💎 Premium UI/UX
+- **Glassmorphism Design**: High-end visual aesthetic with blurred backgrounds and neon accents.
+- **Real-time Data Visualization**: Interactive charts for salary growth and market trends.
+- **Responsive Layout**: Seamless experience across Desktop and Mobile.
 
 ---
 
-## 🚀 Installation & Setup
+## 📂 Repository Hygiene: Excluded Files
+To maintain a clean and secure repository, the following are **not** committed. Follow these steps to regenerate them:
 
-### 1. Prerequisites
-- **Node.js**: (LTS version)
-- **Python**: 3.8+
-- **MySQL**: Installed and running.
+| Excluded Item | Description | Restoration Command / Action |
+| :--- | :--- | :--- |
+| `node_modules/` | Frontend dependencies | `cd frontend && npm install` |
+| `.env` | Secret API/DB keys | Create `backend/.env` (see template below) |
+| `__pycache__/` | Python byte code | Automatically created on run |
+| `*.log` | Server error logs | Automatically created on run |
 
-### 2. Backend Configuration
-Create a `.env` file in the `backend/` directory:
+---
+
+## 🛠️ Detailed Setup Guide
+
+### 1. Database Initialization
+1. Open your MySQL client (Workbench or CMD).
+2. Create a database: `CREATE DATABASE career_guidance;`
+3. Import the schema from `backend/view_data.sql`.
+
+### 2. Environment Variables
+Create a file named `.env` in the `backend/` folder:
 ```env
+# Database Config
 DB_HOST=localhost
-DB_USER=your_username
-DB_PASSWORD=your_password
+DB_USER=root
+DB_PASSWORD=your_mysql_password
 DB_NAME=career_guidance
+
+# AI Config (Optional)
+AI_MODEL_PATH=weights/career_model_nb.pkl
 ```
 
-Install Python dependencies:
+### 3. Backend Installation
 ```bash
 cd backend
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 3. Frontend Configuration
+### 4. Frontend Installation
 ```bash
 cd frontend
 npm install
@@ -66,44 +82,44 @@ npm install
 
 ---
 
-## 🚦 How to Run
+## 🔌 API Documentation (Endpoints)
 
-### Option A: Quick Start (Windows)
-We provide two batch files for easy startup:
-1.  **Run Backend**: Double-click `start_backend.bat`
-2.  **Run Frontend**: Double-click `start_frontend.bat`
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/login` | User/Admin Authentication |
+| `POST` | `/api/predict` | ML Career Prediction Engine |
+| `GET` | `/api/dashboard/{user_id}` | Fetch personalized career data |
+| `POST` | `/api/chat` | Interact with the Neural Reasoning Agent |
 
-### Option B: Manual Start
-**Backend:**
-```bash
-cd backend
-python main.py
-```
+---
 
-**Frontend:**
-```bash
-cd frontend
-npm run dev
-```
+## 📉 Machine Learning Architecture
+The system processes **25+ input features** including:
+- **Technical**: Programming, Database, Cloud, UI/UX skills.
+- **Soft Skills**: Communication, Leadership, Problem Solving.
+- **Academic**: CGPA, Internships, Projects.
+
+**Model Pipeline:**
+1. **Preprocessing**: Label Encoding + Scaling.
+2. **Feature Extraction**: TF-IDF for text-based interests.
+3. **Classification**: Naive Bayes (Fast) + Random Forest (High Accuracy).
 
 ---
 
 ## 🔑 Access Credentials
 
-| User Type | Username | Password |
-| :--- | :--- | :--- |
-| **Admin** | `Admin` | `123456` |
-| **Student** | `Yash` | `123456` |
+*   **Admin Dashboard**: `Admin` / `123456`
+*   **Student Dashboard**: `Yash` / `123456`
 
 ---
 
-## 📊 Project Structure
-- `backend/`: FastAPI server, ML prediction logic, and database handlers.
-- `frontend/`: React components and premium CSS styles.
-- `backend/weights/`: Pre-trained ML model files (handled via Git LFS).
-- `generate_report.py`: Utility for generating career PDF reports.
+## 🚀 Future Roadmap
+- [ ] Integration with LinkedIn API for real-time job listings.
+- [ ] PDF Certificate generation for assessment completion.
+- [ ] Dark/Light mode toggle for the UI.
+- [ ] Mobile App version using React Native.
 
 ---
 
-## 🛡️ License
-This project is for academic/viva purposes. All rights reserved.
+## 🛡️ License & Copyright
+Developed by **Yash Modi** for the Final Year Capstone Project. All rights reserved. 
