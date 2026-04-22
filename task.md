@@ -1,0 +1,20 @@
+- [x] Move root diagrams to `Diagrams/` folder
+- [x] Remove redundant/transient files from root
+- [x] Update Database Schema
+    - [x] Add `session_id` to `chats` table in `database.py`
+    - [x] Update `save_chat` signature and query
+    - [x] Update `get_user_chats` to support `session_id` filtering
+- [x] Verify project cleanup success
+- [x] Remove redundant large CSV datasets (~240MB)
+- [x] Update `train_model.py` to use final cleaned dataset
+- [x] Start Backend Server (uvicorn)
+- [x] Start Frontend Server (vite)
+- [x] Implement Input Validation (Nonsense Detection) in `predict.py`
+- [x] Refine Prediction matching logic for low-signal inputs
+- [x] Add "Inconclusive" state handling to frontend
+- [x] Strictly block junk input and show error on Assessment page
+- [ ] Implement Early Validation (Frontend per-step checks)
+    - [/] Add `isValidContent` helper
+    - [/] Update Frontend Dashboard
+    - [/] Group chats by `session_id` in `StudentDashboard.jsx`
+    - [/] Redesign Coach Logs UI for session-based cards

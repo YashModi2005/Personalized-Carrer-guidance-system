@@ -1,0 +1,2 @@
+backend/weights/*.pkl filter=lfs diff=lfs merge=lfs -text
+backend/*.csv filter=lfs diff=lfs merge=lfs -text

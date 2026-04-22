@@ -1,0 +1,13 @@
+mysql-connector-python
+fastapi
+uvicorn
+pydantic
+python-dotenv
+cors
+python-multipart
+pandas
+numpy
+scipy
+scikit-learn
+joblib
+shap
