@@ -1,71 +1,109 @@
 # 🚀 AI CareerPilot: Personalized Career Guidance System
 
-A premium, full-stack career trajectory prediction and guidance system. This platform uses machine learning to analyze user technical skills, soft skills, and academic performance to recommend the most suitable career paths with high-accuracy roadmaps and AI coaching.
+A premium, full-stack career trajectory prediction and guidance system. This platform uses machine learning to analyze technical skills, soft skills, and academic performance to recommend optimal career paths with high-accuracy roadmaps and AI coaching.
 
 ---
 
-## ✨ Features
-- **AI-Driven Recommendations**: Predicts top career matches using scikit-learn ML models.
+## ✨ Key Features
+- **AI-Driven Recommendations**: Predicts top career matches using Scikit-Learn models.
 - **Dynamic Roadmaps**: Generates step-by-step career progression plans.
-- **Interactive AI Coach**: Real-time career session powered by an LLM-driven chat interface.
-- **Growth Analysis**: Instant visualization of salary expectations and market demand.
-- **Professional Dashboard**: Clean, modern interface with glassmorphism aesthetics.
+- **Neural Reasoning Agent**: Real-time AI coach that "thinks" through your career options.
+- **Premium UI**: Modern glassmorphism interface with fluid animations.
+- **Growth Analysis**: Visualization of salary expectations and market demand.
 
 ---
 
 ## 🛠️ Tech Stack
-- **Frontend**: React.js, Lucide Icons, Vanilla CSS (Premium Glassmorphism).
-- **Backend**: FastAPI (Python), Scikit-Learn (ML), MySQL (Database).
-- **Communication**: Axios for API interaction.
-- **Styling**: Tailored Modern CSS Design System.
+- **Frontend**: React.js, Lucide Icons, Vanilla CSS (Custom Design System).
+- **Backend**: FastAPI (Python), MySQL.
+- **Machine Learning**: Scikit-Learn, Pandas, SHAP (Explainable AI).
+- **Large File Support**: Git LFS for ML Model weights.
 
 ---
 
-## 🔑 Access Credentials
+## 📂 Repository Note: Excluded Files
+For security and efficiency, some files are **not** included in this repository. Here is how to restore them:
 
-### 🛡️ Admin Side
-- **Username**: `Admin`
-- **Password**: `123456`
-
-### 👤 User Side
-- **Username**: `Yash`
-- **Password**: `123456`
+1.  **`node_modules/`**:
+    *   **Why excluded**: Thousands of library files that are bulky.
+    *   **How to restore**: Run `npm install` inside the `frontend` folder.
+2.  **`.env` File**:
+    *   **Why excluded**: Contains sensitive database passwords.
+    *   **How to restore**: Create a `.env` file in the `backend/` folder (see [Environment Variables](#-environment-variables) below).
+3.  **Local Database (`.db`)**:
+    *   **Why excluded**: Local test data is specific to the development machine.
+    *   **How to restore**: Run the SQL scripts in `backend/view_data.sql` to initialize your MySQL database.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Installation & Setup
 
 ### 1. Prerequisites
-- **Node.js**: (Latest LTS version recommended)
-- **Python**: 3.8 or higher
-- **MySQL**: Installed and running (see `MYSQL_HELP.md` for schema setup)
+- **Node.js**: (LTS version)
+- **Python**: 3.8+
+- **MySQL**: Installed and running.
 
-### 2. Quick Start (Windows)
-We provide batch files for one-click startup:
-- **Run Backend**: Double-click `start_backend.bat`
-- **Run Frontend**: Double-click `start_frontend.bat`
+### 2. Backend Configuration
+Create a `.env` file in the `backend/` directory:
+```env
+DB_HOST=localhost
+DB_USER=your_username
+DB_PASSWORD=your_password
+DB_NAME=career_guidance
+```
 
-### 3. Manual Installation
-
-#### Backend Setup
-```powershell
-cd "backend"
+Install Python dependencies:
+```bash
+cd backend
 pip install -r requirements.txt
+```
+
+### 3. Frontend Configuration
+```bash
+cd frontend
+npm install
+```
+
+---
+
+## 🚦 How to Run
+
+### Option A: Quick Start (Windows)
+We provide two batch files for easy startup:
+1.  **Run Backend**: Double-click `start_backend.bat`
+2.  **Run Frontend**: Double-click `start_frontend.bat`
+
+### Option B: Manual Start
+**Backend:**
+```bash
+cd backend
 python main.py
 ```
 
-#### Frontend Setup
-```powershell
-cd "frontend"
-npm install
+**Frontend:**
+```bash
+cd frontend
 npm run dev
 ```
 
 ---
 
-## 📂 Project Structure
-- `backend/`: FastAPI server, ML models, and Database logic.
-- `frontend/`: React components, state management, and styling.
-- `Diagrams/`: Architecture, Sequence, and Activity diagrams for design reference.
+## 🔑 Access Credentials
+
+| User Type | Username | Password |
+| :--- | :--- | :--- |
+| **Admin** | `Admin` | `123456` |
+| **Student** | `Yash` | `123456` |
 
 ---
+
+## 📊 Project Structure
+- `backend/`: FastAPI server, ML prediction logic, and database handlers.
+- `frontend/`: React components and premium CSS styles.
+- `backend/weights/`: Pre-trained ML model files (handled via Git LFS).
+- `generate_report.py`: Utility for generating career PDF reports.
+
+---
+
+## 🛡️ License
+This project is for academic/viva purposes. All rights reserved.
