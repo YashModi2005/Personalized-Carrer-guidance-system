@@ -1,0 +1,94 @@
+================================================================================
+AI CAREER PILOT - RECOVERY & SETUP GUIDE
+================================================================================
+If you have reset your laptop or want to move this project to a new machine, 
+follow these step-by-step instructions to get everything back up and running.
+
+--------------------------------------------------------------------------------
+STEP 1: INSTALL CORE SOFTWARE (THE TOOLS)
+--------------------------------------------------------------------------------
+Download and install these 4 things first:
+
+1. Python (3.10 or newer)
+   - Link: https://www.python.org/downloads/
+   - IMPORTANT: Check the box "Add Python to PATH" during installation.
+
+2. Node.js (LTS Version)
+   - Link: https://nodejs.org/
+   - This is needed to run the frontend.
+
+3. MySQL Community Server
+   - Link: https://dev.mysql.com/downloads/installer/
+   - Set the 'root' password to whatever you like (keep it blank or 'root' for easiest setup).
+   - Make sure the MySQL service is running.
+
+4. Git & Git LFS (VERY IMPORTANT)
+   - Git Link: https://git-scm.com/
+   - Git LFS Link: https://git-lfs.com/
+   - Because the dataset is large, you MUST install Git LFS before cloning.
+
+--------------------------------------------------------------------------------
+STEP 2: DOWNLOAD THE PROJECT FROM GITHUB
+--------------------------------------------------------------------------------
+Open a Terminal (PowerShell or CMD) and run these commands:
+
+1. Initialize Git LFS:
+   git lfs install
+
+2. Clone your repository:
+   git clone https://github.com/YashModi2005/Personalized-Carrer-guidance-system.git
+
+3. Go into the folder:
+   cd Personalized-Carrer-guidance-system
+
+--------------------------------------------------------------------------------
+STEP 3: SETUP THE BACKEND (AI ENGINE)
+--------------------------------------------------------------------------------
+1. Go to the backend folder:
+   cd backend
+
+2. Create a Virtual Environment (to keep things clean):
+   python -m venv venv
+
+3. Activate it:
+   .\venv\Scripts\activate
+
+4. Install the requirements:
+   pip install -r requirements.txt
+
+5. Configure Database:
+   - Create a file named '.env' in the 'backend' folder.
+   - Add your MySQL password inside it:
+     MYSQL_PASSWORD=your_password_here
+     MYSQL_USER=root
+     MYSQL_HOST=localhost
+     MYSQL_DATABASE=career_pilot_db
+
+--------------------------------------------------------------------------------
+STEP 4: SETUP THE FRONTEND (USER INTERFACE)
+--------------------------------------------------------------------------------
+1. Open a NEW terminal window in the root folder.
+2. Go to the frontend folder:
+   cd frontend
+3. Install the dependencies:
+   npm install
+
+--------------------------------------------------------------------------------
+STEP 5: RUN THE PROJECT
+--------------------------------------------------------------------------------
+You can use the easy shortcuts I created in the root folder:
+
+1. Double-click 'start_backend.bat' (Wait for "Application startup complete")
+2. Double-click 'start_frontend.bat' (It will give you a link like http://localhost:5173)
+
+Open the link in your browser and your AI Career Pilot is ready!
+
+--------------------------------------------------------------------------------
+TROUBLESHOOTING
+--------------------------------------------------------------------------------
+- Dataset missing? Run 'git lfs pull' in the terminal.
+- MySQL Error? Ensure MySQL Workbench is running and your password in '.env' is correct.
+- Python Error? Make sure you ran 'pip install -r requirements.txt'.
+
+Made with ❤️ for your Capstone Project.
+================================================================================
